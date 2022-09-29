@@ -39,3 +39,4 @@ else:
     print("Establezco ip por dhcp")
     
     print("Alejandro Valle González")
+    print("Alejandro Valle González IntelIJ")
