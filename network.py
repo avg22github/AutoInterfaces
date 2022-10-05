@@ -15,8 +15,8 @@ except ModuleNotFoundError as e:
     from pyroute2 import IPRoute
 
 my_gateways =defaultdict(dict)
-my_gateways['192.168.58.1']="192.168.58.175/24"
-my_gateways['192.168.10.1']="192.168.10.20/24"
+my_gateways['192.168.58.1']="192.168.58.237/24"
+my_gateways['192.168.1.1']="192.168.1.237/24"
 
 def get_gateway():
     gws = netifaces.gateways()
@@ -37,6 +37,5 @@ if(my_gateways.__contains__(gateway)):
 else:
     print("Localizacion no reconocida.")
     print("Establezco ip por dhcp")
-    
-    print("Alejandro Valle González")
-    print("Alejandro Valle González IntelIJ")
+
+    system("/usr/sbin/ntpdate hora.cica.es > /dev/null 2>&1 && /usr/bin/hwclock -s")
