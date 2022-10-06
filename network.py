@@ -29,13 +29,24 @@ def setIpAddr(iface, staticip,gateway):
 def getipfromgateway(gateway):
     return my_gateways[gateway]
 gateway = get_gateway()
+
+system("clear")
+
+print("\n")
+
 if(my_gateways.__contains__(gateway)):
     print("Localizacion reconocida.")
     ip= getipfromgateway(gateway)
+    print("\n")
     print(f"Asignando IP: {ip}")
     setIpAddr('ens33', ip,gateway)
 else:
     print("Localizacion no reconocida.")
     print("Establezco ip por dhcp")
 
-    system("/usr/sbin/ntpdate hora.cica.es > /dev/null 2>&1 && /usr/bin/hwclock -s")
+print ("\n")
+
+system("/usr/sbin/ntpdate hora.cica.es > /dev/null 2>&1 && /usr/bin/hwclock -s")
+print("La hora actual es:")
+system("date")
+print("\n")
